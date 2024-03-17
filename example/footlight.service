@@ -1,0 +1,18 @@
+[Unit]
+Description=Footlight
+After=network.target pigpiod.service
+
+[Service]
+WorkingDirectory=/path/to/project/directory
+Environment=FOOTLIGHT_LED_PIN=21
+Environment=FOOTLIGHT_POWER_BUTTON_PIN=6
+Environment=FOOTLIGHT_HUE_BUTTON_PIN=13
+Environment=FOOTLIGHT_SATURATION_UP_BUTTON_PIN=19
+Environment=FOOTLIGHT_SATURATION_DOWN_BUTTON_PIN=26
+Environment=FOOTLIGHT_VALUE_UP_BUTTON_PIN=16
+Environment=FOOTLIGHT_VALUE_DOWN_BUTTON_PIN=20
+ExecStart=/path/to/project/directory/.venv/bin/python main.py
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
